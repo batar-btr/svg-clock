@@ -25,7 +25,7 @@ function clock() {
     }
     
     var change = www.children[second];
-    change.style.fill = "#F7931E";
+    change.style.fill = "#1e8bf7";
     
     
     document.getElementById('hourString').style.transform = "rotate("+(hour*30+Math.floor(minute/2))+"deg)";
