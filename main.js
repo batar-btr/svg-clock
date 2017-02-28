@@ -1,3 +1,4 @@
+var lines = document.getElementById('www');
 function clock() {
     var date = new Date();
     var hour = date.getHours();
@@ -20,6 +21,11 @@ function clock() {
         setTimeout(obnul,300);
         
     }else{
+        
+        for(var j = 1;j<second;j++){
+            lines.children[j].style.fill = "#1e8bf7";
+        }
+        
         document.getElementById('secondString').style.transition = "0.2s all cubic-bezier(.53, 1.47, .62, 1.47)";
         document.getElementById('secondString').style.transform = "rotate("+second*6+"deg)";
     }
@@ -56,9 +62,3 @@ function clock() {
 }
 setInterval(clock,1000);
 
-document.onclick = function(e) {
-    
-    var x = document.body.querySelector('.ident');
-    x.hidden = !x.hidden;
-    
-}
