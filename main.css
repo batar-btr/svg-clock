@@ -31,6 +31,17 @@ body {
 #minuteString {
     transform-origin: 50% 80%;
 }
+#z10,#z18 {
+    transition: 0.2s all cubic-bezier(.45, 1.47, .75, 1.47);
+    transform-origin: 50% 50%;
+    
+}
+#z18 {
+    fill:#484848;
+}
+#z10 {
+    fill:#868686;
+}
 @media screen and (max-width:1000px) {
     .wrap {
         width: 90%;

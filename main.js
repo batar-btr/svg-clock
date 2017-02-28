@@ -9,12 +9,18 @@ function clock() {
     function obnul(){
         document.getElementById('secondString').style.transition = "0s all";
         document.getElementById('secondString').style.transform = "rotate("+0+"deg)";
+        document.getElementById('z18').style.transition = "0s all";
+        document.getElementById('z18').style.transform = "rotate("+0+"deg)"
+        document.getElementById('z10').style.transition = "0s all";
+        document.getElementById('z10').style.transform = "rotate("+360+"deg)"
         
     }
     
     if(second==0){
         document.getElementById('secondString').style.transform = "rotate("+360+"deg)";
-        var reset = www.children;
+        document.getElementById('z18').style.transform = "rotate("+360+"deg)";
+        document.getElementById('z10').style.transform = "rotate("+"-288"+"deg)";
+        var reset = lines.children;
         for(var z = 1;z<reset.length;z++){
             reset[z].style.fill = "grey";
         }
@@ -28,6 +34,12 @@ function clock() {
         
         document.getElementById('secondString').style.transition = "0.2s all cubic-bezier(.53, 1.47, .62, 1.47)";
         document.getElementById('secondString').style.transform = "rotate("+second*6+"deg)";
+        
+        document.getElementById('z18').style.transition = "0.2s all cubic-bezier(.53, 1.47, .62, 1.47)";
+        document.getElementById('z18').style.transform = "rotate("+second*6+"deg)";
+        
+        document.getElementById('z10').style.transition = "0.2s all cubic-bezier(.53, 1.47, .62, 1.47)";
+        document.getElementById('z10').style.transform = "rotate("+(360-second*6*1.8)+"deg)";
     }
     
     var change = www.children[second];
