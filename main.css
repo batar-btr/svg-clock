@@ -7,6 +7,9 @@ body {
     background-color:black;
     
 }
+#www .st0 {
+    fill: gray;
+}
 .wrap {
     
    width: 40%;
