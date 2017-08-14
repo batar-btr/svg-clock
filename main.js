@@ -64,7 +64,6 @@
 
         this.secondHand.style.transition = "0.2s all cubic-bezier(.53, 1.47, .62, 1.47)";
         this.secondHand.style.transform = "rotate(" + arrowDegrees.second * 6 + "deg)";
-        console.log(arrowDegrees.second);
 
     };
 
