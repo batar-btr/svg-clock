@@ -3,8 +3,12 @@
     margin: 0;
 }
 body {
-    position: relative;
-    background-color:black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
     
 }
 #www .st0 {
@@ -12,38 +16,42 @@ body {
 }
 .wrap {
     
-   width: 40%;
-   
-   position: absolute;
-   margin: auto;
-    
-    top: 100px;
-    left: 0;
-    right: 0;
+   width: 90vh;
 
 }
 #secondString {
     transform-origin: 50% 80%;
+    -moz-transform-origin: 400px 400px;
     transform: rotate(0deg);
     transition: 0.2s all cubic-bezier(.45, 1.47, .75, 1.47);
     
 }
 #hourString {
     transform-origin: 50% 80%;
+    -moz-transform-origin: 400px 400px;
 }
 #minuteString {
+    
     transform-origin: 50% 80%;
+    -moz-transform-origin: 400px 400px;
 }
 #z10,#z18 {
-    transition: 0.2s all cubic-bezier(.45, 1.47, .75, 1.47);
     transform-origin: 50% 50%;
+    transition: 0.2s all cubic-bezier(.45, 1.47, .75, 1.47);
     
+}
+#z6 {
+    transform-origin: 50% 50%;
+    -moz-transform-origin: 270px 400px;
 }
 #z18 {
     fill:#484848;
 }
 #z10 {
     fill:#868686;
+}
+#vvv .st0 {
+    fill: yellowgreen; 
 }
 @media screen and (max-width:1000px) {
     .wrap {

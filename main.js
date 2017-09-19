@@ -1,13 +1,19 @@
-(function () {
+// (function () {
     'use strict';
 
+    var arrowDegrees = new ArrowDegrees();
+    var clock = new Clock();
+    // var bbb = new Clock();
+    // console.dir(bbb);
     function Clock() {
         this.secondHand = document.getElementById('secondString');
         this.minuteHand = document.getElementById('minuteString');
         this.hourHand = document.getElementById('hourString');
         this.lines = document.getElementById('www').children;
+        this.minuteCircle = document.getElementById('vvv').children;
         this.gear18 = document.getElementById('z18');
         this.gear10 = document.getElementById('z10');
+        this.gear6 = document.getElementById('z6');
     }
 
     function ArrowDegrees() {
@@ -23,10 +29,6 @@
         this.hour = date.getHours();
     };
 
-    var arrowDegrees = new ArrowDegrees();
-
-    var clock = new Clock();
-
     Clock.prototype.getIllumination = function () {
 
         for (var i = 0; i < arrowDegrees.second; i++) {
@@ -35,6 +37,12 @@
 
         this.lines[arrowDegrees.second].style.fill = '#1e8bf7';
     };
+
+    // Clock.prototype.circleIllumination = function () {
+    //     if (arrowDegrees.second % 5 === 0) {
+    //         this.minuteCircle[arrowDegrees.second / 5].style.fill = 'yellowgreen';
+    //     }
+    // };
 
     Clock.prototype.resetRotation = function () {
         var that = this;
@@ -46,11 +54,14 @@
             that.gear18.style.transform = "rotate(" + 0 + "deg)";
             that.gear10.style.transition = "0s all";
             that.gear10.style.transform = "rotate(" + 360 + "deg)";
+            that.gear6.style.transition = "0s all";
+            that.gear6.style.transform = "rotate(" + 360 + "deg)";
         }
 
         this.secondHand.style.transform = "rotate(" + 360 + "deg)";
         this.gear18.style.transform = "rotate(" + 360 + "deg)";
         this.gear10.style.transform = "rotate(" + "-288" + "deg)";
+        this.gear6.style.transform = "rotate(" + "-720" + "deg)";
 
         var j;
         var linesLength = this.lines.length;
@@ -61,10 +72,8 @@
     };
 
     Clock.prototype.moveSecondString = function () {
-
         this.secondHand.style.transition = "0.2s all cubic-bezier(.53, 1.47, .62, 1.47)";
         this.secondHand.style.transform = "rotate(" + arrowDegrees.second * 6 + "deg)";
-
     };
 
     Clock.prototype.moveMinuteString = function () {
@@ -87,12 +96,18 @@
         this.gear10.style.transform = "rotate(" + (360 - arrowDegrees.second * 6 * 1.8) + "deg)";
     };
 
+    Clock.prototype.moveGear6 = function () {
+        this.gear6.style.transition = "0.2s all cubic-bezier(.53, 1.47, .62, 1.47)";
+        this.gear6.style.transform = "rotate(" + (360 - arrowDegrees.second * 6 * 3) + "deg)";
+    };
+
     Clock.prototype.moveString = function () {
         this.moveMinuteString();
         this.moveSecondString();
         this.moveHourString();
         this.moveGear18();
         this.moveGear10();
+        this.moveGear6();
     };
 
     setInterval(function () {
@@ -101,7 +116,8 @@
             clock.resetRotation();
         } else {
             clock.getIllumination();
+            // clock.circleIllumination();
             clock.moveString();
         }
     }, 1000);
-}());
+// }());
